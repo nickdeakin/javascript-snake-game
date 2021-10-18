@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Game</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+<header>
+  <ul class="score">
+    <li>Score</li>
+    <li id="points">0</li>
+    <li><span onclick="showHelp()" id="help-link">Show Help</span></li>
+  </ul>
+</header>
+<main>
+
+</main>
+<footer>
+  <input type="text" id="command" disabled="true" />
+</footer>
+
+<div id="overlay" class="none">
+  <div id="help-container">
+    <h2>Hello</h2>
+    <p>Typing will populate the command area at the bottom of the screen</p>
+    <h4>Chat message</h4>
+    <p>A simple bit of text, then a strike of the enter key, will send a general chat message. Everyone can see this.</p>
+    <h4>/name</h4>
+    <p><em>/name newbie</em> will set your name to newbie.</p>
+    <h4>/pm</h4>
+    <p><em>/pm newbie hello there newbie</em> will send a private message to the player named newbie.</p>
+    <span onclick="hideHelp()" id="done-link">Done</span>
+  </div>
+</div>
+
+<script type="module">
+  import Main from './assets/js/main.js';
+  const main = Main();
+</script>
+
+<script src="https://cdn.socket.io/4.2.0/socket.io.min.js"
+        integrity="sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj"
+        crossorigin="anonymous"></script>
+<script>
+  const socket = io();
+
+  const showHelp = () => {
+    const overlay = document.getElementById('overlay');
+    if (overlay) {
+      overlay.classList.remove('none');
+      overlay.classList.add('flex');
+    }
+  };
+
+  const hideHelp = () => {
+    const overlay = document.getElementById('overlay');
+    if (overlay) {
+      overlay.classList.remove('flex');
+      overlay.classList.add('none');
+    }
+  };
+</script>
+</body>
+
+</html>

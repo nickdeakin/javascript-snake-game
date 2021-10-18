@@ -1,0 +1,21 @@
+{
+  "name": "snake-clone",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "javacript",
+    "game"
+  ],
+  "license": "",
+  "author": "Nick Deakin <nickdeakin83@gmail.com>",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node --inspect index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.3.0",
+    "uuid": "^8.3.2"
+  }
+}
